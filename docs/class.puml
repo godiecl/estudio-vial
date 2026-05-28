@@ -1,7 +1,7 @@
 @startuml
 skin rose
 set separator none
-left to right direction
+' left to right direction
 hide empty members
 
 package cl.ucn.disc.poo.estudiovial {
@@ -14,13 +14,18 @@ package cl.ucn.disc.poo.estudiovial {
             - modelo: String
             - capacidadEstanque: Double
             - rendimientoCombustible: Double
+            - conductorActual: Conductor
+            ----
             + Automovil(placaPatente: String, marca: String, modelo: String, capacidadEstanque: Double, rendimientoCombustible: Double)
             + getPlacaPatente(): String
             + getMarca(): String
             + getModelo(): String
             + getCapacidadEstanque(): Double
             + getRendimientoCombustible(): Double
+            ....
+            + getConductorActual(): Conductor
         }
+        Automovil "0..*" --> "0..1" Conductor
 
         enum TipoLicencia {
             * A
@@ -39,9 +44,15 @@ package cl.ucn.disc.poo.estudiovial {
             - {static} RUT: String
             - nombre: String
             - edad: int
-            - tipoLicencia: TipoLicencia
             - cantidadInfracciones: int
+            - tipoLicencia: TipoLicencia
             - nivelEducacional: Postitulo
+            + getRut(): String
+            + getNombre(): String
+            + getEdad(): int
+            + getCantidadInfracciones(): int
+            + getTipoLicencia(): TipoLicencia
+            + getNivelEducacional(): Postitulo
         }
         Conductor "0..*" --> "1" TipoLicencia
         Conductor "0..*" --> "1" NivelEducacional
