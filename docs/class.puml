@@ -28,15 +28,23 @@ package cl.ucn.disc.poo.estudiovial {
             * C
         }
 
+        enum NivelEducacional {
+            * Basica
+            * Media
+            * Universitaria
+            * Postitulo
+        }
+
         class Conductor {
             - {static} RUT: String
             - nombre: String
             - edad: int
-            - tipoLicencia: String
+            - tipoLicencia: TipoLicencia
             - cantidadInfracciones: int
-            - nivelEducacional: String
+            - nivelEducacional: Postitulo
         }
         Conductor "0..*" --> "1" TipoLicencia
+        Conductor "0..*" --> "1" NivelEducacional
 
     }
 
