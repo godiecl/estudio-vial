@@ -47,12 +47,16 @@ package cl.ucn.disc.poo.estudiovial {
             - cantidadInfracciones: int
             - tipoLicencia: TipoLicencia
             - nivelEducacional: Postitulo
+            - automoviles: Set<Automovil>
+            ----
             + getRut(): String
             + getNombre(): String
             + getEdad(): int
             + getCantidadInfracciones(): int
             + getTipoLicencia(): TipoLicencia
             + getNivelEducacional(): Postitulo
+            ....
+            + getAutomoviles(): Set<Automovil>
         }
         Conductor "0..*" --> "1" TipoLicencia
         Conductor "0..*" --> "1" NivelEducacional
