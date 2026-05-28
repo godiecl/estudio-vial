@@ -1,0 +1,46 @@
+@startuml
+skin rose
+set separator none
+left to right direction
+hide empty members
+
+package cl.ucn.disc.poo.estudiovial {
+
+    package domain {
+
+        class Automovil {
+            - {static} placaPatente: String
+            - marca: String
+            - modelo: String
+            - capacidadEstanque: Double
+            - rendimientoCombustible: Double
+            + Automovil(placaPatente: String, marca: String, modelo: String, capacidadEstanque: Double, rendimientoCombustible: Double)
+            + getPlacaPatente(): String
+            + getMarca(): String
+            + getModelo(): String
+            + getCapacidadEstanque(): Double
+            + getRendimientoCombustible(): Double
+        }
+
+        enum TipoLicencia {
+            * A
+            * B
+            * C
+        }
+
+        class Conductor {
+            - {static} RUT: String
+            - nombre: String
+            - edad: int
+            - tipoLicencia: String
+            - cantidadInfracciones: int
+            - nivelEducacional: String
+        }
+        Conductor "0..*" --> "1" TipoLicencia
+
+    }
+
+}
+
+
+@enduml

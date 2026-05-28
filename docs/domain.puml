@@ -1,0 +1,26 @@
+@startuml
+skin rose
+set separator none
+left to right direction
+hide empty members
+
+entity Conductor {
+    * {static} RUT
+    * Nombre
+    * Edad
+    * Tipo de Licencia
+    * Cantidad de Infracciones
+    * Nivel Educacional
+}
+
+entity "Automóvil" as Automovil {
+    * {static} Placa Patente
+    * Marca
+    * Modelo
+    * Capacidad de Estanque
+    * Rendimiento de Combustible
+}
+Automovil "0..1" -- "0..1" Conductor : > es el conductor actual
+Automovil "0..*" -- "0..*" Conductor : < es el propietario
+
+@enduml
